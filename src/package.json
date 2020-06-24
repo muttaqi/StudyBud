@@ -1,0 +1,27 @@
+{
+  "name": "studybudsuggestedlinks",
+  "version": "1.0.0",
+  "description": "Implements Azure to suggest links from the web given some string",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muttaqi Islam",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cognitiveservices-textanalytics": "^4.0.0",
+    "@azure/ms-rest-js": "^2.0.4",
+    "abort-controller": "^3.0.0",
+    "azure-cognitiveservices-websearch": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "ms-rest-azure": "^3.0.0",
+    "node-fetch": "^2.6.0",
+    "webpack": "^4.41.2",
+    "yargs": "^15.0.2"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7",
+    "webpack-cli": "^3.3.10"
+  }
+}

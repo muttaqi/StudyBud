@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+    <!--<script type="module" src="/js/popup.js"></script>-->
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="studyBud" />
+    <meta name="description" content="A web extension to help with studying and research!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>studyBud</title>
+    <a href="javascript:main()"></a>
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="/jquery-3.4.1.js"></script>
+
+    <script src="/popup.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+
+</head>
+
+<body style="width:390px; height:580px">
+
+    <div>
+        <ul class="uk-child-width-expand" uk-tab uk-switcher>
+            <li><a id="CitationsButton" href="#">Citations</a></li>
+            <li><a id="ResearchButton" href="#">Research</a></li>
+            <li><a id="NotesButton" href="#">Notes</a></li>
+        </ul>
+        <ul class="uk-switcher uk-margin">
+            <!--Citation Tab-->
+            <li id="centre">
+                <img data-src="StudyBudFull.png" class="uk-padding-remove uk-margin-remove" width="500" height="500"
+                    alt="500" uk-img>
+                <button id="MLAButton" class="uk-button uk-button-default uk-button-small">MLA</button>
+                <button id="APAButton" class="uk-button uk-button-default uk-button-small">APA</button>
+                <!--<li class="uk-nav-divider"></li>-->
+                <form id="input">
+                    <div>
+                        <label for="authors">Authors:</label>
+                        <input type="text" id="authorInput">
+                    </div>
+                    <div>
+                        <label for="title">Title:</label>
+                        <input type="text" id="titleInput">
+                    </div>
+                    <div>
+                        <label for="webTitle">Website Title:</label>
+                        <input type="text" id="webTitleInput">
+                    </div>
+                    <div>
+                        <label for="org./Publisher">Org./Publisher:</label>
+                        <input type="text" id="organizationInput">
+                    </div>
+                    <div>
+                        <label for="URL">URL:</label>
+                        <input type="text" id="URLInput">
+                    </div>
+                    <div>
+                        <label for="Pub. Date">Pub. Date:</label>
+                        <input type="text" id="pubDateInput">
+                    </div>
+                    <div>
+                        <label for="Location">Location:</label>
+                        <input type="text" id="locationInput">
+                    </div>
+                    <div>
+                        <button id="submitButton" class="uk-button uk-button-default uk-button-small">Submit</button>
+                        <p id="citation">Your citation will appear here</p>
+                    </div>
+            </li>
+            <!--Research Tab-->
+            <li id="research-tab">
+                <h4 class="uk-margin-small-left">Recommended links:</h4>
+                <ul id="resource-list">
+                    <div class="uk-card-body uk-card-small uk-margin-large-right">
+                        <h6 id="firstCardTitle" class="uk-card-title">Title</h6>
+                        <p id="firstCardInfo">Highlight text and access the right-click menu to search for similar resources.</p>
+                    </div>
+                </ul>
+                <!--span class="uk-badge">tags</span-->
+            </li>
+            <!--Notes Tab-->
+            <li>
+                <nav class="uk-navbar-container uk-margin" uk-navbar>
+                    <div class="uk-navbar-left">
+                        <!--Notes dropdown menu button-->
+                        <div class="uk-inline">
+                            <ul class="uk-navbar-nav">
+                                <li>
+                                    <a id="notesTitle" href="#">
+                                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: file-text">
+                                        </span>
+                                        Notes
+                                    </a>
+                                </li>
+                            </ul>
+                            <div uk-dropdown>
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li id="ACTIVE" class="uk-active"><a href="#centre">ACTIVE</a></li>
+                                    <li><a id="new-note" href="#">New Note</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li id="SAVEDNOTES" class="uk-nav-header">Saved Notes</li>
+
+                                    <ul id="parent" class="uk-child-width-expand" uk-switcher></ul>
+                                    <ul id="parent2" class="uk-switcher uk-margin"></ul>
+                                    <!--other saved notes go over here-->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="uk-navbar-item">
+                            <form action="javascript:void(0)">
+                                <textarea id="NOTETITLE" cols="30" class="uk-input uk-form-width-regular" type="text" placeholder="Title"></textarea>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <!--Textbox for notetaking-->
+                <div>
+                    <textarea id="text_field" rows="20" cols="50" placeholder="Write notes down here..."></textarea>
+                </div>
+                <div class="uk-row-first uk-form-row">
+                    <button id="saveButton" class="uk-margin-large-left uk-margin-medium-bottom uk-float-left uk-button uk-button-primary uk-button-small uk-row-first">Save</button>
+                    <button id="deleteButton" class="uk-margin-large-right uk-margin-medium-bottom uk-float-right uk-button uk-button-primary uk-button-small uk-row-first">Delete</button>
+                </div>
+                <hr class="uk-margin-medium-top"></hr>
+                <div class="uk-float-left" id="open-link-written">
+                    <a class="uk-float-left uk-margin-small-left" uk-icon="icon: link"></a>
+                    <p2 class="uk-margin-large-top uk-margin-small-left" id="link-written">Click on a paragraph to get the link at which you wrote it</p2>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
