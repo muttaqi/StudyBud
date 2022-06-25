@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "ms-rest-azure": "^3.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "webpack": "^4.41.2",
     "yargs": "^15.0.2"
   },
